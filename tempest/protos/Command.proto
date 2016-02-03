@@ -1,0 +1,98 @@
+option java_package = "tempest.protos";
+
+option java_outer_classname = "Command";
+
+import "Membership.proto";
+
+message Message {
+    enum Type {
+        PING = 1;
+        GREP = 2;
+        INTRODUCE = 3;
+        LEAVE = 4;
+        MEMBERSHIP = 5;
+        PUT = 6;
+        GET = 7;
+        DELETE = 8;
+        PUTCHUNK = 9;
+        GETCHUNK = 10;
+        DELETECHUNK = 11;
+        LIST = 12;
+    }
+
+    required Type type = 1;
+    optional Ping ping = 2;
+    optional Grep grep = 3;
+    optional Introduce introduce = 4;
+    optional Leave leave = 5;
+    optional Membership membership = 6;
+    optional Put put = 7;
+    optional Get get = 8;
+    optional Delete delete = 9;
+    optional PutChunk putChunk = 10;
+    optional GetChunk getChunk = 11;
+    optional DeleteChunk deleteChunk = 12;
+    optional List list = 13;
+}
+
+message Ping {
+    optional string response = 1;
+}
+
+message Grep {
+    optional string request = 1;
+    optional string response = 2;
+}
+
+message Introduce {
+    required Member request = 1;
+    optional MembershipList response = 2;
+}
+
+message Leave {
+    required Member request = 1;
+    optional string response = 2;
+}
+
+message Membership {
+    required MembershipList request = 1;
+}
+
+message Put {
+    optional string request = 1;
+    optional string response = 2;
+    optional string localFileName = 3;
+}
+
+message Get {
+    optional string request = 1;
+    optional string response = 2;
+}
+
+message Delete {
+    optional string request = 1;
+    optional string response = 2;
+}
+
+message PutChunk {
+    optional string request = 1;
+    optional string response = 2;
+    optional int32 replica1 = 3;
+    optional int32 replica2 = 4;
+    optional string sDFSFileName = 5;
+}
+
+message GetChunk {
+    optional string request = 1;
+    optional string response = 2;
+}
+
+message DeleteChunk {
+    optional string request = 1;
+    optional string response = 2;
+}
+
+message List {
+    optional string request = 1;
+    optional string response = 2;
+}

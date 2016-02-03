@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="tempest:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/tempest_jar</output-path>
+    <root id="archive" name="tempest.jar">
+      <element id="module-output" name="tempest" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/googlecode/clichemaven/cliche/110413/cliche-110413.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
